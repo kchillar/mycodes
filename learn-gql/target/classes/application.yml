@@ -1,0 +1,39 @@
+---
+server: 
+  http2: 
+    enabled: true
+spring: 
+  application: 
+    name: learn-gql
+# These are graphql settings    
+graphql:
+ tools:
+# The files ending with .graphqls are treated as schema files  
+  schema-location-pattern: "**/*.graphqls"
+ servlet:
+  exception-handlers-enabled: true
+  maxQueryDepth: 5
+  tracing-enabled: true
+  actuator-metrics: true
+# The voyager is for browsing our schema files
+# enabled: false for production build  
+ voyager:
+  enabled: true     
+# The playground is used to test the application by sending the graphl queries
+# enabled: false for production build  
+ playground:
+  enabled: true
+  headers:
+   Authorization: My Secret Token
+  tabs:
+   - name: Bank Account Sample Query
+     query: classpath:playground/bank_account.graphql
+     variables: classpath:playground/bank_account_variables.json
+   - name: Another Bank Account Sample Query
+     query: classpath:playground/bank_account.graphql
+     variables: classpath:playground/bank_account_variables.json
+   - name: Another Bank Account Sample Query
+     query: classpath:playground/bank_account.graphql
+     variables: classpath:playground/bank_account_variables.json
+
+...

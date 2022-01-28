@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+	</parent>
+
+
+	<groupId>com.learn.graphql</groupId>
+	<artifactId>learn-gql</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+	<name>gqldemo</name>
+	<url>http://maven.apache.org</url>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<pmd.version>3.11.0</pmd.version>
+		<spring.boot.version>7.1.0</spring.boot.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphql-spring-boot-starter</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>playground-spring-boot-starter</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>voyager-spring-boot-starter</artifactId>
+			<version>${spring.boot.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>buildClassPath</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>libs/</classpathPrefix>
+									<mainClass>com.alacriti.fw.es.main.InteractiveTaskExecutor</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<repositories>
+		<repository>
+			<id>Dev</id>
+			<name>Releases</name>
+			<url>http://internal-int-std-app-vip-180380986.us-east-2.elb.amazonaws.com:8080/nexus/content/repositories/releases/</url>
+		</repository>
+		<repository>
+			<id>QA</id>
+			<name>Snapshots</name>
+			<url>http://internal-int-std-app-vip-180380986.us-east-2.elb.amazonaws.com:8080/nexus/content/repositories/snapshots/</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>Dev</id>
+			<name>Releases</name>
+			<url>http://internal-int-std-app-vip-180380986.us-east-2.elb.amazonaws.com:8080/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>QA</id>
+			<name>Snapshots</name>
+			<url>http://internal-int-std-app-vip-180380986.us-east-2.elb.amazonaws.com:8080/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
