@@ -1,8 +1,20 @@
 <tags-info>
-  
-  <tag name="gql-queries" date="2022-01-30">
-    <info>Implemented only graph queries</info>
-    <info>Yet to implement mutations</info>
-  </tag>
+
+	<help>
+		<create-tag>git tag -a TagName -m "Some comments about the tag"</create-tag>
+		<list-tags>git tag</list-tags>
+		<show-tag-details>git show TagName</show-tag-details>
+		<push-atag>git push origin TagName</push-atag>
+		<push-lot-of-tags>git push origin --tags</push-lot-of-tags>
+		<delete-tag-locally>git tag -d TagName</delete-tag-locally>
+		<delete-tag-remote>git push --delete origin TagName</delete-tag-remote>
+	</help>
+
+	<tag name="gql-queries" date="2022-01-30">
+		<info>Implemented only simple graph queries</info>
+		<info>To run the app: ./run.sh</info> 
+		<info>To test the app: cd testscripts and then: ./post-file-using-curl.sh ./get-customer.json</info>  
+		<info>Yet to implement mutations</info>
+	</tag>
 
 </tags-info> 
