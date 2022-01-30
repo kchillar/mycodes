@@ -1,4 +1,4 @@
-package com.learn.graphql.exception;
+package com.learn.rmt.exception;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;

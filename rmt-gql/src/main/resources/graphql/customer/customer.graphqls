@@ -1,0 +1,14 @@
+type Customer
+{
+	refId: ID!
+	extRefId: String 	
+	serviceRefId: String	
+	name: String
+	email: String
+	phone: String
+	status: String
+	address: Address
+	bankAccounts: [CustomerBankAccount]
+	linkedAccounts: [LinkedAccount]
+}
+

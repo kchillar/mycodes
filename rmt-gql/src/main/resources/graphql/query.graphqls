@@ -1,4 +1,5 @@
 #All available queries
 type Query{
+customerByRefId(refId: ID): Customer
 bankAccount(id: ID):BankAccount
 } 

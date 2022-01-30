@@ -1,4 +1,4 @@
-package com.learn.graphql.domain.customer;
+package com.learn.rmt.domain.customer;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,8 +15,9 @@ public class Customer {
 	String serviceRefId; //The customer reference id in the money movement service (API)	
 	String name;
 	String email;
-	String phone;
-	String status;
+	String phone;	
 	Address address;
 	List<CustomerBankAccount> bankAccounts;
+	List<LinkedAccount> linkedAccounts;
+	String status;
 }

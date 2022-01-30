@@ -1,4 +1,4 @@
-#Sriram bank account details
+#Get Bank Account Details with ID
 query GET_BANK_ACCOUNT($id:ID){
   bankAccount(id:$id){
     client{

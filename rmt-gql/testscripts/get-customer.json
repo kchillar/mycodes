@@ -1,0 +1,1 @@
+{"query":"query($refId: ID){ customerByRefId(refId: $refId){name email phone address{line1 line2 city state} bankAccounts{accountNumber accountSubType} linkedAccounts{nickName} }}","variables":{"refId":"2c7d5548-7e5b-11ec-90d6-0242ac120003"}}

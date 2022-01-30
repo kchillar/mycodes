@@ -1,0 +1,8 @@
+type CustomerBankAccount
+{
+  nameOnAccount: String
+  routingNumber: String
+  accountNumber: String
+  accountSubType: String
+  status: String
+}

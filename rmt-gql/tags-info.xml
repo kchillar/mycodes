@@ -1,0 +1,8 @@
+<tags-info>
+  
+  <tag name="gql-queries" date="2022-01-30">
+    <info>Implemented only graph queries</info>
+    <info>Yet to implement mutations</info>
+  </tag>
+
+</tags-info> 

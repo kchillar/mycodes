@@ -4,7 +4,7 @@ server:
     enabled: true
 spring: 
   application: 
-    name: learn-gql
+    name: rmt-gql
 # These are graphql settings    
 graphql:
  tools:
@@ -18,7 +18,7 @@ graphql:
 # The voyager is for browsing our schema files
 # enabled: false for production build  
  voyager:
-  enabled: true     
+  enabled: false     
 # The playground is used to test the application by sending the graphl queries
 # enabled: false for production build  
  playground:
@@ -29,11 +29,7 @@ graphql:
    - name: Bank Account Sample Query
      query: classpath:playground/bank_account.graphql
      variables: classpath:playground/bank_account_variables.json
-   - name: Another Bank Account Sample Query
-     query: classpath:playground/bank_account.graphql
-     variables: classpath:playground/bank_account_variables.json
-   - name: Another Bank Account Sample Query
-     query: classpath:playground/bank_account.graphql
-     variables: classpath:playground/bank_account_variables.json
-
+   - name: Customer Sample Query
+     query: classpath:playground/customer.graphql
+     variables: classpath:playground/customer_variables.json
 ...

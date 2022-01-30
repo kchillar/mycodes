@@ -1,0 +1,8 @@
+type LinkedAccount{
+     serviceRefId: String
+	 nickName: String
+	 accountHolderRefId: String
+	 type: String
+	 subType: String
+}
+

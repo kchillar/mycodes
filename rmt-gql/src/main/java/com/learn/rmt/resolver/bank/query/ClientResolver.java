@@ -1,4 +1,4 @@
-package com.learn.graphql.resolver.bank.query;
+package com.learn.rmt.resolver.bank.query;
 
 import java.util.UUID;
 

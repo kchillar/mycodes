@@ -1,4 +1,4 @@
-package com.learn.graphql.domain.customer;
+package com.learn.rmt.domain.customer;
 
 import lombok.Builder;
 import lombok.Value;
