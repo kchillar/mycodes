@@ -1,0 +1,9 @@
+{
+   "cardAccountInput":
+    {
+	 "ownerServiceRefId":"custABCDRefId",
+	 "accountNumber":"5678 3454 3221 7889",
+	 "accountSubType":"VISA",
+	 "expiryDate":"12/24"
+    }
+ }

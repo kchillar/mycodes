@@ -1,4 +1,4 @@
-type CustomerBankAccount
+type InternalBankAccount
 {
   nameOnAccount: String
   routingNumber: String

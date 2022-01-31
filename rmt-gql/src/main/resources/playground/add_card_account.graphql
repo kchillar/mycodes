@@ -1,0 +1,10 @@
+mutation ADD_CARD_ACCOUNT($cardAccountInput: CardAccountInput){ 
+  addCardAccount(cardAccountInput: $cardAccountInput){ 
+  	serviceRefId 
+  	ownerServiceRefId 
+  	accountNumber 
+  	accountSubType 
+  	status 
+  	expiryDate
+  }
+}

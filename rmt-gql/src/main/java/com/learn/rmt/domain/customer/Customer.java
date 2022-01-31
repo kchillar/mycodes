@@ -17,7 +17,7 @@ public class Customer {
 	String email;
 	String phone;	
 	Address address;
-	List<CustomerBankAccount> bankAccounts;
+	List<InternalBankAccount> bankAccounts;
 	List<LinkedAccount> linkedAccounts;
 	String status;
 }

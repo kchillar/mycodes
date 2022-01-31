@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class CustomerBankAccount 
+public class InternalBankAccount 
 {
   String nameOnAccount;
   String routingNumber;

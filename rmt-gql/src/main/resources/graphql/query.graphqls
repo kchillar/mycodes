@@ -3,3 +3,8 @@ type Query{
 customerByRefId(refId: ID): Customer
 bankAccount(id: ID):BankAccount
 } 
+
+type Mutation
+{
+ addCardAccount(cardAccountInput: CardAccountInput): CardAccount
+}

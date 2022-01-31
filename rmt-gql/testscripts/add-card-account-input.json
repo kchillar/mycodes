@@ -1,0 +1,13 @@
+{
+ "query":"mutation ADD_CARD_ACCOUNT($cardAccountInput: CardAccountInput){ addCardAccount(cardAccountInput: $cardAccountInput){ serviceRefId ownerServiceRefId accountNumber accountSubType status expiryDate}}",
+ "variables":{
+   "cardAccountInput":
+    {
+	 "ownerServiceRefId":"custABCDRefId",
+	 "accountNumber":"123456789",
+	 "accountSubType":"VISA",
+	 "expiryDate":"12/24"
+    }
+ }
+}
+	

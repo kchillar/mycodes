@@ -8,7 +8,7 @@ type Customer
 	phone: String
 	status: String
 	address: Address
-	bankAccounts: [CustomerBankAccount]
+	bankAccounts: [InternalBankAccount]
 	linkedAccounts: [LinkedAccount]
 }
 

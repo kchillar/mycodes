@@ -1,0 +1,17 @@
+input CardAccountInput
+{
+  ownerServiceRefId: String
+  accountNumber: String
+  accountSubType: String  
+  expiryDate: String
+}
+
+type CardAccount
+{
+  serviceRefId: String
+  ownerServiceRefId: String
+  accountNumber: String
+  accountSubType: String
+  expiryDate: String
+  status: String
+}

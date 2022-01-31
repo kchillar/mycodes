@@ -26,10 +26,13 @@ graphql:
   headers:
    Authorization: My Secret Token
   tabs:
-   - name: Bank Account Sample Query
-     query: classpath:playground/bank_account.graphql
-     variables: classpath:playground/bank_account_variables.json
-   - name: Customer Sample Query
+   - name: Get Customer
      query: classpath:playground/customer.graphql
      variables: classpath:playground/customer_variables.json
+   - name: Add Card Account
+     query: classpath:playground/add_card_account.graphql
+     variables: classpath:playground/add_card_account_variables.json
+   - name: Sample Get Bank Account
+     query: classpath:playground/bank_account.graphql
+     variables: classpath:playground/bank_account_variables.json
 ...

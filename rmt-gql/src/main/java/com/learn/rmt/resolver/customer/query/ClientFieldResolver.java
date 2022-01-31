@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.learn.rmt.domain.customer.Address;
 import com.learn.rmt.domain.customer.Customer;
-import com.learn.rmt.domain.customer.CustomerBankAccount;
+import com.learn.rmt.domain.customer.InternalBankAccount;
 import com.learn.rmt.domain.customer.LinkedAccount;
 
 import graphql.kickstart.tools.GraphQLResolver;
@@ -25,14 +25,14 @@ public class ClientFieldResolver implements GraphQLResolver<Customer>
 	}
 
 	
-	public List<CustomerBankAccount> bankAccounts(Customer customer)
+	public List<InternalBankAccount> bankAccounts(Customer customer)
 	{
 		log.info("customer bankAccounts(custRefId:{})", customer.getRefId());		
-		List<CustomerBankAccount> list = new ArrayList<>();		
-		CustomerBankAccount acct;		
-		acct = CustomerBankAccount.builder().accountNumber("99999999999").nameOnAccount("John D").accountSubType("Checking").build();
+		List<InternalBankAccount> list = new ArrayList<>();		
+		InternalBankAccount acct;		
+		acct = InternalBankAccount.builder().accountNumber("99999999999").nameOnAccount("John D").accountSubType("Checking").build();
 		list.add(acct);		
-		acct = CustomerBankAccount.builder().accountNumber("6666666666").nameOnAccount("J Doe").accountSubType("Savings").build();		
+		acct = InternalBankAccount.builder().accountNumber("6666666666").nameOnAccount("J Doe").accountSubType("Savings").build();		
 		list.add(acct);	
 		return list;
 	}

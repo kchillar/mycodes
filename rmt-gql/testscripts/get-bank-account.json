@@ -1,5 +1,5 @@
 {
- "query": "query($id: ID){ bankAccount(id: $id){client{ id firstName lastName}}}",
+ "query": "query GET_BANK_ACCOUNT($id: ID){ bankAccount(id: $id){client{ id firstName lastName}}}",
  "variables":{"id":"2c7d5548-7e5b-11ec-90d6-0242ac120003"}
 }
 
