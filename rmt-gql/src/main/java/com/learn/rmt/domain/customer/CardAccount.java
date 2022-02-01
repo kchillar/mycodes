@@ -13,4 +13,5 @@ public class CardAccount
 	 String accountSubType;
 	 String expiryDate;
 	 String status;
+	 Address cardAddress;	 
 }

@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class ClientFieldResolver implements GraphQLResolver<Customer>
+public class CustomerFieldResolver implements GraphQLResolver<Customer>
 {
 	public Address  address(Customer customer)
 	{

@@ -11,4 +11,5 @@ public class CardAccountInput
 	 String accountNumber;
 	 String accountSubType;
 	 String expiryDate;
+	 AddressInput cardAddress;	 
 }

@@ -10,14 +10,14 @@
 		<delete-tag-remote>git push --delete origin TagName</delete-tag-remote>
 	</help>
 
-	<tag name="gql-queries-mutation" date="2022-01-31">
+	<tag name="gql-with-mutation" date="2022-01-31">
 		<info>Implemented simple mutation</info>
 		<info>To run the app: ./run.sh</info> 
 		<info>To test the mutation: cd ./testscripts; ./post-file-using-curl.sh ./add-card-account.json</info>  
 		<info>Can also use playground to test. Use browser and go to URL http://localhost:8080/playground</info>
 	</tag>
 
-	<tag name="gql-queries" date="2022-01-30">
+	<tag name="SIMPLE-GQL-QUERIES" date="2022-01-30">
 		<info>Implemented only simple graph queries</info>
 		<info>To run the app: ./run.sh</info> 
 		<info>To test the app: cd testscripts and then: ./post-file-using-curl.sh ./get-customer.json</info>  

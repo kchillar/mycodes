@@ -4,6 +4,7 @@ input CardAccountInput
   accountNumber: String
   accountSubType: String  
   expiryDate: String
+  cardAddress: AddressInput  
 }
 
 type CardAccount
@@ -14,4 +15,5 @@ type CardAccount
   accountSubType: String
   expiryDate: String
   status: String
+  cardAddress: Address
 }
