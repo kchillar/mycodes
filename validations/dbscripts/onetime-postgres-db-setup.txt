@@ -1,0 +1,44 @@
+1) Pull the postgres version 14.1 docker image using the following command:
+
+docker pull postgres:14.1-bullseye
+
+2) Run the docker image and assign a name called "ValpackDB" to the container
+-p option to expose the port 5432
+-v option to mount $HOME/postgres/valpackdb  the directory on host to the /var/lib/postgresql/data  directory in the container
+-e is the environment variable POSTGRES_PASSWORD
+-rm for removing any previous containers by the name
+
+docker run --rm   --name ValpackDB -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -v $HOME/postgres/valpackdb:/var/lib/postgresql/data  postgres
+
+3) To go into the container use the comand:
+
+docker exec -it 4f26f93b67ad  /bin/bash
+or
+docker exec -it containerID /bin/bash
+
+-it for interactive/terminal mode
+
+We can execute any command in the container using:
+docker exec containerID command
+
+4) Once inside the container we can run psql the command line sql client and connect to the database using the following command:
+
+psql -h localhost -U  postgres
+
+The above will connect to the database using user postgres
+
+5) Create a database called valpackdb using the command
+create database valpackdb;
+
+6) Create a user called valpack_dev with same password using the following command:
+
+create user valpack_dev with encrypted password 'valpack_dev';
+grant all privileges on database valpackdb to valpack_dev;
+
+7) Connect from GUI DBeaver SQL Client and run the ddl.sql to create the necessary tables
+
+8) Run seed scripts and other scripts as needed
+
+9) exit to exit from psql
+
+10) exit to exit from the docker shell
