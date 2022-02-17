@@ -1,8 +1,8 @@
-package com.learn.valpack.domain;
+package com.learn.valpack.bl.modal;
 
 import java.util.List;
 
-import com.learn.valpack.controller.form.NamespaceForm;
+import com.learn.valpack.controller.modal.NamespaceForm;
 
 import lombok.Builder;
 import lombok.Getter;

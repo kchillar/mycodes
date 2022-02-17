@@ -42,3 +42,22 @@ grant all privileges on database valpackdb to valpack_dev;
 9) exit to exit from psql
 
 10) exit to exit from the docker shell
+
+11) Some useful psql commands:
+a) To list all databases \l
+b) To change to a database \c dbname
+c) To list tables in a database \dt
+d) To describe a table \d tablename
+e) To see previous commands \g
+f) To list all the commands \?
+g) To get help \h DROP Table
+
+12) \i 'path/postgres.sql'
+
+
+
+
+
+
+
+ 

@@ -1,6 +1,6 @@
-package com.learn.valpack.service;
+package com.learn.valpack.bl.service;
 
-import com.learn.valpack.domain.BaseVO;
+import com.learn.valpack.bl.modal.BaseVO;
 
 import lombok.Builder;
 import lombok.Value;

@@ -1,20 +1,19 @@
-package com.learn.valpack.domain;
+package com.learn.valpack.controller.modal;
 
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class ObjectFieldVO extends BaseVO
+public class ObjectFieldForm extends BaseForm
 {
 	String fieldName;
 	String fieldType;
 	
 	@Builder
-	public ObjectFieldVO(int errorCode, String errorMsg, String fieldName, String fieldType) {
+	public ObjectFieldForm(int errorCode, String errorMsg, String fieldName, String fieldType) {
 		super(errorCode, errorMsg);
 		this.fieldName = fieldName;
 		this.fieldType = fieldType;
 	}
-
 	
 }

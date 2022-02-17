@@ -1,4 +1,4 @@
-package com.learn.valpack.repository.jdbc;
+package com.learn.valpack.bl.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,14 +9,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.learn.valpack.domain.NamespaceVO;
-import com.learn.valpack.service.NameSpaceService;
+import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.service.NameSpaceService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Repository
-public class NamespaceRepository
+public class NamespaceDAO
 {	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

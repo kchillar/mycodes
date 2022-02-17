@@ -1,4 +1,4 @@
-package com.learn.valpack.service;
+package com.learn.valpack.bl.service;
 
 public interface ServiceErrorCodes 
 {	

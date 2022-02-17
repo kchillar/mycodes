@@ -1,14 +1,11 @@
-package com.learn.valpack.controller;
+package com.learn.valpack.controller.modal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.learn.valpack.controller.form.NamespaceForm;
-import com.learn.valpack.controller.form.ObjectFieldForm;
-import com.learn.valpack.controller.form.ObjectTypeForm;
-import com.learn.valpack.domain.NamespaceVO;
-import com.learn.valpack.domain.ObjectFieldVO;
-import com.learn.valpack.domain.ObjectTypeVO;
+import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.modal.ObjectFieldVO;
+import com.learn.valpack.bl.modal.ObjectTypeVO;
 
 public class FormAndDomainObjectMapper 
 {

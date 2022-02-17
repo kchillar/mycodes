@@ -1,14 +1,14 @@
-package com.learn.valpack.repository.jdbc;
+package com.learn.valpack.bl.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.learn.valpack.controller.form.ObjectTypeForm;
+import com.learn.valpack.controller.modal.ObjectTypeForm;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Repository
-public class ObjectTypeRepository 
+public class ObjectTypeDAO 
 {
 	
 	public ObjectTypeForm create(ObjectTypeForm objectTypeInfo) 

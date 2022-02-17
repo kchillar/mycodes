@@ -1,4 +1,4 @@
-package com.learn.valpack.controller;
+package com.learn.valpack.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.learn.valpack.controller.form.NamespaceForm;
-import com.learn.valpack.domain.NamespaceVO;
-import com.learn.valpack.service.NameSpaceService;
-import com.learn.valpack.service.ServiceContext;
-import com.learn.valpack.service.ServiceErrorCodes;
+import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.service.NameSpaceService;
+import com.learn.valpack.bl.service.ServiceContext;
+import com.learn.valpack.bl.service.ServiceErrorCodes;
+import com.learn.valpack.controller.modal.FormAndDomainObjectMapper;
+import com.learn.valpack.controller.modal.NamespaceForm;
 
 import lombok.extern.slf4j.Slf4j;
 

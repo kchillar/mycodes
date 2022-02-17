@@ -1,15 +1,15 @@
 The code has the following layers:
 a) The main application
 b) package com.learn.valpack.controller for the REST Controllers
-c) package com.learn.valpack.controller.form for Object used for API support.
+c) package com.learn.valpack.controller.modal for Object used for API support.
 d) For each API message in the controller, there will only be one method in the Service calls
 
 The best wayt to design domain objects and services classes to imagine and alternate Controllers like say GraphQL controller and assume the controller layer can change.
 
-d) package com.learn.valpack.domain for the Domain or Business Objects
+d) package com.learn.valpack.bl.modal for the Domain or Business Objects
 e) A mapper class in package com.learn.valpack.controller maps the form object to domain objects and vice-versa
-f) package com.learn.valpack.service for exposing services that will be called from the Controllers.
-g) package com.learn.valpack.bo for business objects that will be called from the service Classes
+f) package com.learn.valpack.bl.service for exposing services that will be called from the Controllers.
+g) package com.learn.valpack.bl.bo for business objects that will be called from the service Classes
 h) The methods in a service are marked by @Transactional marker to make them transactional
 i) Multiple methods in the BO and DAO operations can be performed from a service and all operations can be committed or rolled back
 j) The DAO call are implemented using @Repository and JDBC Template of the SpringBoot framework
@@ -18,7 +18,7 @@ Sesson Checks and API message Logging
 k) Session checks and API message logging are handled by filters in the rest layer
 l)  The audit can be implementd using filter as well.
 m) The validations are implemented in the service layer
-
+n) We can add Spring Filter for all urls or for url patterns and or OnceOnlyURL Filters which are gaurenteed to execute only once
 
 DB Design:
 

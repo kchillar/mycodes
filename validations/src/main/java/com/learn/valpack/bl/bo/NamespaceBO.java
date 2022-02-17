@@ -1,12 +1,12 @@
-package com.learn.valpack.bo;
+package com.learn.valpack.bl.bo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.learn.valpack.domain.NamespaceVO;
-import com.learn.valpack.repository.jdbc.NamespaceRepository;
-import com.learn.valpack.service.ServiceContext;
-import com.learn.valpack.service.ServiceErrorCodes;
+import com.learn.valpack.bl.dao.NamespaceDAO;
+import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.service.ServiceContext;
+import com.learn.valpack.bl.service.ServiceErrorCodes;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 public class NamespaceBO 
 {
 	@Autowired
-	NamespaceRepository namespaceRepo;
+	NamespaceDAO namespaceRepo;
 	
 	public NamespaceVO create(ServiceContext context, NamespaceVO input)
 	{

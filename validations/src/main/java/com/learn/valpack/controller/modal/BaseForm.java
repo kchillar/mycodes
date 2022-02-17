@@ -1,4 +1,4 @@
-package com.learn.valpack.controller.form;
+package com.learn.valpack.controller.modal;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

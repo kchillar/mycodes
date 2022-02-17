@@ -1,4 +1,4 @@
-package com.learn.valpack.domain;
+package com.learn.valpack.bl.modal;
 
 import lombok.Builder;
 import lombok.Getter;
