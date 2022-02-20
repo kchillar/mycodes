@@ -1,11 +1,13 @@
 package com.learn.valpack.bl.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.learn.valpack.bl.bo.NamespaceBO;
-import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.modal.Namespace;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,17 +19,17 @@ public class NameSpaceService
 	NamespaceBO namespaceBO;
 		
 	@Transactional
-	public NamespaceVO create(ServiceContext context, NamespaceVO input)
+	public Namespace create(ServiceContext context, Namespace input)
 	{
 		log.info("create({})", input);
 		return namespaceBO.create(context, input);
 	}
 	
 	@Transactional
-	public NamespaceVO findByName(ServiceContext context, NamespaceVO input)
+	public List<Namespace> findByName(ServiceContext context, Namespace input)
 	{
-		log.info("findByName({})", input.getNamespace());
-		return namespaceBO.findByName(context, input);
+		log.info("findByName({clientId:{}})", input.getClientId());
+		return namespaceBO.findNamespaces(context, input);
 	}
 
 }

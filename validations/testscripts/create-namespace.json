@@ -1,4 +1,5 @@
 {
- "namespace":"TT",
- "packageName":"com.learn.tt" 
+ "namespace":"T1",
+ "packageName":"valpack.t1",
+ "clientId":2
 }

@@ -1,17 +1,27 @@
 package com.learn.valpack.bl.service;
 
-import com.learn.valpack.bl.modal.BaseVO;
-
 import lombok.Builder;
-import lombok.Value;
+import lombok.Getter;
+import lombok.Setter;
 
-@Value
+
 @Builder
+@Getter
+@Setter
 public class ServiceContext 
 {
-	private BaseVO requestVO;
-	private BaseVO responseVO;
-	private boolean isError = true;
+	private boolean isSuccess;
+	private int errorCode;
+	private String errorMessage;
 	
+	public void reset()
+	{
+		setSuccess(false);
+	}
 	
+	public void setSuccess()
+	{
+		setSuccess(true);
+	}
 }
+

@@ -1,0 +1,6 @@
+{
+ "clientId":2,
+ "namespace":"TransfersAPI",
+ "typeName":"Country",
+ "extendsTypeName":"String"
+}

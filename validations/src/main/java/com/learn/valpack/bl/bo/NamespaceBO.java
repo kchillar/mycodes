@@ -1,10 +1,12 @@
 package com.learn.valpack.bl.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.learn.valpack.bl.dao.NamespaceDAO;
-import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.modal.Namespace;
 import com.learn.valpack.bl.service.ServiceContext;
 import com.learn.valpack.bl.service.ServiceErrorCodes;
 
@@ -17,7 +19,7 @@ public class NamespaceBO
 	@Autowired
 	NamespaceDAO namespaceRepo;
 	
-	public NamespaceVO create(ServiceContext context, NamespaceVO input)
+	public Namespace create(ServiceContext context, Namespace input)
 	{
 		log.info("create({})", input);
 		int rows;		
@@ -26,49 +28,72 @@ public class NamespaceBO
 			rows = namespaceRepo.create(input);
 			log.info("create({}) returned {} row ",input, rows);
 			
-			if(rows != 1)
+			if(rows == 1)
 			{
-				input.setErrorCode(ServiceErrorCodes.ServiceError);
-				input.setErrorMsg("Unable to create namespace");
+				context.setSuccess();
 			}
-			return input;
+			else
+			{
+				context.setErrorCode(ServiceErrorCodes.ServiceError);
+				context.setErrorMessage("Unable to create namespace");
+			}
 		}
 		catch(Exception exp)
 		{
-			NamespaceVO vo = NamespaceVO.builder().errorCode(ServiceErrorCodes.ServiceError).build();
-			input.setErrorMsg("Encountered error");
+			context.setErrorCode(ServiceErrorCodes.ServiceError);
+			context.setErrorMessage("Unable to create namespace");
 			log.error("Error", exp);
-			return vo;
-		}		
+		}	
+		return input;
 	}
 
 	
-	public NamespaceVO findByName(ServiceContext context, NamespaceVO input)
+	public List<Namespace> findNamespaces(ServiceContext context, Namespace input)
 	{
-		log.info("findByName({})", input.getNamespace());
-		NamespaceVO vo;		
+		log.info("findNamespaces(clientId:{})", input.getClientId());		
+		List<Namespace> list = null;		
+		
 		try
 		{
-			vo = namespaceRepo.findByName(input);			
+			list = namespaceRepo.findAllNamespacesByClientId(input);			
+			context.setSuccess();
+		}
+		catch(Exception exp)
+		{
+			context.setErrorCode(ServiceErrorCodes.ServiceError);
+			context.setErrorMessage("Unable to create namespace");
+			log.error("Error", exp);
+		}		
+		return list;
+	}
 
-			if(vo != null)
+	public Namespace findNamespaceByClientAndName(ServiceContext context, Namespace input)
+	{
+		log.info("findNamespaceByClientAndName(clientId:{}, namespace:{})", input.getClientId(),input.getNamespace());		
+		Namespace ns = null;		
+		try
+		{
+			List<Namespace> list = namespaceRepo.findAllNamespacesByClientId(input);
+			context.setSuccess();
+			
+			if(list == null || list.size() == 0)
+				return null;
+			
+			for(Namespace nsl: list)
 			{
-				log.info("found namespace entry by name: '"+input.getNamespace()+"'");
-			}
-			else
-			{				
-				vo = NamespaceVO.builder().errorCode(ServiceErrorCodes.UnableToFindDataInStore).build();
-				String msg = "Unable to find namespace entry by name: '"+input.getNamespace()+"'";
-				vo.setErrorMsg(msg);
-				log.info(msg);
+				log.info("namespaceId:"+nsl.getNamespaceId()+", namespace:'"+nsl.getNamespace()+"', clientId:"+nsl.getClientId());
+				if(nsl.getNamespace().equals(input.getNamespace()))			
+					ns = nsl;
 			}
 		}
 		catch(Exception exp)
 		{
-			vo = NamespaceVO.builder().errorCode(ServiceErrorCodes.ServiceError).build();
+			context.setErrorCode(ServiceErrorCodes.ServiceError);
+			context.setErrorMessage("Unable to find namespace "+input.getNamespace());
 			log.error("Error", exp);
 		}		
-		return vo;
+		log.info("Giving ns: "+ns);
+		return ns;
 	}
 
 

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class BaseVO 
+public class Base 
 {
 	private int errorCode;
 	private String errorMsg;

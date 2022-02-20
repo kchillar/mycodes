@@ -1,0 +1,10 @@
+{
+ "clientId":2,
+ "namespace":"TransfersAPI",
+ "typeName":"Account",
+ "fieldInfoList":[
+  {"fieldName":"acctNo", "fieldType":"String" },
+  {"fieldName":"address", "fieldType":"Address"},
+  {"fieldName":"contactInfo", "fieldType":"Contact"}
+ ]
+}

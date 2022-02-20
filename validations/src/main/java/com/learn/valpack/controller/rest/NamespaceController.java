@@ -1,60 +1,54 @@
 package com.learn.valpack.controller.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.learn.valpack.bl.modal.NamespaceVO;
+import com.learn.valpack.bl.modal.Namespace;
 import com.learn.valpack.bl.service.NameSpaceService;
 import com.learn.valpack.bl.service.ServiceContext;
-import com.learn.valpack.bl.service.ServiceErrorCodes;
-import com.learn.valpack.controller.modal.FormAndDomainObjectMapper;
-import com.learn.valpack.controller.modal.NamespaceForm;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/namespace")
+@RequestMapping("/namespaces")
 public class NamespaceController 
 {
 	@Autowired
 	NameSpaceService namespaceService;
 	
 	@PostMapping("")	
-	public ResponseEntity<NamespaceForm> createNamespace(@RequestBody NamespaceForm nameSpace) 
+	public ResponseEntity<Namespace> createNamespace(@RequestBody Namespace nameSpace) 
 	{
-		log.info("createNamespace({})",nameSpace);		
-		NamespaceVO input = FormAndDomainObjectMapper.toNamespaceVO(nameSpace);				
-		NamespaceVO vo = namespaceService.create(ServiceContext.builder().build(), input);
-		NamespaceForm output = FormAndDomainObjectMapper.toNamespaceForm(vo);		
-		return new ResponseEntity<>(output, HttpStatus.OK);
+		log.info("createNamespace({})",nameSpace);								
+		Namespace vo = namespaceService.create(ServiceContext.builder().build(), nameSpace);
+		if(vo != null)
+			return new ResponseEntity<>(vo, HttpStatus.OK);
+		else
+			return ResponseEntity.notFound().build();			
 	}
 	
-	@GetMapping("/{namespace}")
-	public ResponseEntity<NamespaceForm> getNamespace(@PathVariable("namespace") String nameSpace) 
+	@GetMapping("")
+	public ResponseEntity<List<Namespace>> getNamespaces() 
 	{
-		log.info("getNamespace({})",nameSpace);
-		ResponseEntity<NamespaceForm> entity;
-						
-		NamespaceVO input = NamespaceVO.builder().namespace(nameSpace).build();
-		NamespaceVO vo = namespaceService.findByName(ServiceContext.builder().build(), input);		
-		NamespaceForm output = FormAndDomainObjectMapper.toNamespaceForm(vo);
+		log.info("getNamespaces({})");
+		Namespace ns = Namespace.builder().build();
+		ns.setClientId(2);
 		
+		List<Namespace> list = namespaceService.findByName(ServiceContext.builder().build(), ns);		
 				
-		if(output.getErrorCode() == ServiceErrorCodes.Success)
-			entity = new ResponseEntity<>(output, HttpStatus.OK);
-			
+		if(list != null)
+			return new ResponseEntity<>(list, HttpStatus.OK);			
 		else
-			entity = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		
-		return entity;
+			return ResponseEntity.notFound().build();
 	}
 
 	/*
@@ -63,7 +57,7 @@ public class NamespaceController
 	{
 		log.info("getNamespaces()");
 		ResponseEntity<List<NamespaceForm>> entity;
-		List<NamespaceForm> list = namespaceRepo.findAll();
+		List<NamespaceForm> list = objectTypeRepo.findAll();
 		
 		if(list != null)
 			entity = new ResponseEntity<>(list, HttpStatus.OK);
